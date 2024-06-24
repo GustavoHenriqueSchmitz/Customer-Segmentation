@@ -1,7 +1,10 @@
 from src.preprocess import Preprocess_Data
-from src.train import Train_Model
+from src.autoencoder import Autoencoder
 from src.clustering import Clustering
+from src.results import Results
 
-processed_dataset, preprocessor, dataset = Preprocess_Data()
-model = Train_Model(processed_dataset)
-clustered_data = Clustering(model, processed_dataset, preprocessor, dataset)
+processed_dataset, dataset = Preprocess_Data()
+model = Autoencoder(processed_dataset)
+embeddings, clusters = Clustering(model, processed_dataset)
+dataset = Results(dataset, embeddings, clusters)
+

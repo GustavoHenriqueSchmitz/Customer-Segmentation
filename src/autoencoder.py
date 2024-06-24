@@ -1,6 +1,6 @@
 import tensorflow as tf
 
-def Train_Model(dataset):
+def Autoencoder(dataset):
     # Define the model
     model = tf.keras.models.Sequential([
         tf.keras.layers.Input(shape=(dataset.shape[1])),

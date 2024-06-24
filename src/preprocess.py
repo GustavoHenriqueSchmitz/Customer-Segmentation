@@ -26,4 +26,4 @@ def Preprocess_Data():
     dataset_processed = preprocessor.fit_transform(dataset)
     dataset_processed = pd.DataFrame(dataset_processed, columns=['Age', 'Annual Income', 'Spending Score', 'Genre_Male'])
 
-    return dataset_processed, preprocessor, dataset
+    return dataset_processed, dataset
