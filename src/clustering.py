@@ -13,11 +13,11 @@ def Clustering(model, dataset):
     clusters = kmeans.fit_predict(embeddings)
     
     # Calculate and log the clustering performance measures
-    score = silhouette_score(embeddings, clusters)
+    sl_score = silhouette_score(embeddings, clusters)
     db_index = davies_bouldin_score(embeddings, clusters)
     ch_index = calinski_harabasz_score(embeddings, clusters)
     print("======================== Clustering Performance Measures ========================")
-    print(f'Silhouette Score: {score}')
+    print(f'Silhouette Score: {sl_score}')
     print(f'Davies-Bouldin Index: {db_index}')
     print(f'Calinski-Harabasz Index: {ch_index}')
     print("=================================================================================")

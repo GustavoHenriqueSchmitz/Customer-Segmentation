@@ -24,8 +24,8 @@ def Results(dataset, embeddings, clusters):
     
     plt.figure(figsize=(10, 6))
     plt.scatter(principal_components[:, 0], principal_components[:, 1], c=clusters, cmap='viridis', marker='o', edgecolor='k')
-    plt.title('Customer Segments')
-    plt.xlabel('Principal Component 1')
-    plt.ylabel('Principal Component 2')
+    plt.title('Customers Clusters Distribution')
+    plt.xlabel('Component 1')
+    plt.ylabel('Component 2')
     plt.colorbar()
     plt.show()

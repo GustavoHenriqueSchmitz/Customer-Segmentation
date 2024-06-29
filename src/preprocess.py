@@ -16,7 +16,7 @@ def Preprocess_Data():
     categorical_features = ['Genre']
     categorical_transformer = OneHotEncoder(drop='first')
 
-    # Define the preprocessor
+    # Define/join the preprocessors
     preprocessor = ColumnTransformer(
         transformers=[
             ('numeric', numeric_transformer, numeric_features),
