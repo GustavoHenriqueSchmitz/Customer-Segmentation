@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.preprocessing import MinMaxScaler, OneHotEncoder
 from sklearn.compose import ColumnTransformer
 
+# Get the dataset and preprocess it
 def Preprocess_Data():
     # Load dataset
     dataset = pd.read_csv("./Mall_Customers.xls")
@@ -15,6 +16,7 @@ def Preprocess_Data():
     categorical_features = ['Genre']
     categorical_transformer = OneHotEncoder(drop='first')
 
+    # Define the preprocessor
     preprocessor = ColumnTransformer(
         transformers=[
             ('numeric', numeric_transformer, numeric_features),
@@ -26,4 +28,5 @@ def Preprocess_Data():
     dataset_processed = preprocessor.fit_transform(dataset)
     dataset_processed = pd.DataFrame(dataset_processed, columns=['Age', 'Annual Income', 'Spending Score', 'Genre_Male'])
 
+    # Return the processed dataset and the original loaded dataset
     return dataset_processed, dataset

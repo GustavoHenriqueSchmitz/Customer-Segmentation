@@ -2,8 +2,9 @@ import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 import pandas as pd
 
+# Show the results of the clustering process
 def Results(dataset, embeddings, clusters):
-    # Ensure the cluster labels match the original dataset
+    # Make the cluster labels match the original dataset
     dataset['Cluster'] = clusters
 
     # Exclude non-numeric columns for mean calculation
@@ -13,9 +14,11 @@ def Results(dataset, embeddings, clusters):
 
     # Combine numeric and non-numeric summaries
     cluster_summary = pd.concat([cluster_summary_numeric, cluster_summary_non_numeric], axis=1)
+    print("================================ Clusters Summary ================================")
     print(cluster_summary)
+    print("==================================================================================")
     
-    # Visualize clusters
+    # generate a plot to better visualize clusters
     pca = PCA(n_components=2)
     principal_components = pca.fit_transform(embeddings)
     
@@ -26,5 +29,3 @@ def Results(dataset, embeddings, clusters):
     plt.ylabel('Principal Component 2')
     plt.colorbar()
     plt.show()
-
-    return dataset

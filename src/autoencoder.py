@@ -1,5 +1,6 @@
 import tensorflow as tf
 
+# Train an autoencoder to reconstruct data
 def Autoencoder(dataset):
     # Define the model
     model = tf.keras.models.Sequential([
@@ -16,7 +17,9 @@ def Autoencoder(dataset):
     )
 
     # Display the model summary
+    print("================================ Model's Summary ================================")
     model.summary()
+    print("=================================================================================")
     
     # Train the model
     model.fit(dataset, dataset, epochs=100, batch_size=100, validation_split=0.15)
