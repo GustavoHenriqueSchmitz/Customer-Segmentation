@@ -2,8 +2,14 @@ import pandas as pd
 from sklearn.preprocessing import MinMaxScaler, OneHotEncoder
 from sklearn.compose import ColumnTransformer
 
-# Get the dataset and preprocess it
 def Preprocess_Data():
+    """
+    Load the desired dataset and preprocess it for AI readiness.
+
+    Returns:
+        dataset_processed: The preprocessed dataset
+        dataset: The original loaded dataset
+    """
     # Load dataset
     dataset = pd.read_csv("./Mall_Customers.xls")
     dataset = dataset.drop("CustomerID", axis=1)

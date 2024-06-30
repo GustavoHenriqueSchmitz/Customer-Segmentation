@@ -2,8 +2,16 @@ import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 import pandas as pd
 
-# Show the results of the clustering process
 def Results(dataset, embeddings, clusters):
+    """
+    Show the clustering results.
+    Show a plot to visualize the clusters and the generated clusters
+
+    Args:
+        dataset: The original dataset
+        embeddings: Latent Space representations of the dataset obtained from the second last layer of the autoencoder. 
+        clusters: Generated clusters by the K-means
+    """
     # Make the cluster labels match the original dataset
     dataset['Cluster'] = clusters
 
@@ -18,10 +26,11 @@ def Results(dataset, embeddings, clusters):
     print(cluster_summary)
     print("==================================================================================")
     
-    # generate a plot to better visualize clusters
+    # Reduce the embeddings to 2 dimensions for visualization
     pca = PCA(n_components=2)
     principal_components = pca.fit_transform(embeddings)
     
+    # Generate a plot to better visualize clusters
     plt.figure(figsize=(10, 6))
     plt.scatter(principal_components[:, 0], principal_components[:, 1], c=clusters, cmap='viridis', marker='o', edgecolor='k')
     plt.title('Customers Clusters Distribution')
