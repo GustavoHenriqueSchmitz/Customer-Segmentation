@@ -11,7 +11,7 @@ def Clustering(model, dataset):
         dataset: Loaded preprocessed dataset
 
     Returns:
-        embeddings: _description_
+        embeddings: Latent Space representations of the dataset obtained from the second last layer of the autoencoder.
         clusters: The generated clusters by the K-means
     """
     # Create a model to extract the output of the second last layer (latent space)
