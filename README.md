@@ -3,7 +3,7 @@
 ## About the model
 An unsupervised AI model that gets a dataset with customer information, analyzes it to understand the patterns within the data, and creates distinct groups of customers.
 
-## Used Technologies
+## Used technologies
 - Python
 - TensorFlow
 
