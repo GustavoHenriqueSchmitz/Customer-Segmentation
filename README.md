@@ -8,11 +8,21 @@ An unsupervised AI model that gets a dataset with customer information, analyzes
 - TensorFlow
 
 ## How to test it?
-First use pip install in the requirements.txt ```pip install -r requirements.txt``` file to install the libraries with their respective versions to run the project.
-After installing the required libraries, just execute the main python file ```python main.py```.
+**1 -** First clone the project:
+```
+git clone https://github.com/GustavoHenriqueSchmitz/Customer-Segmentation.git
+```
 
-**Note:** If you're having problems to execute the project, check the version of the libraries especified in the **requirements.txt** file, if they are equal to the versions especified
-in the **requirements.txt** file. If some library is different, you may need to reinstall it with the correct version.
+**2 -** Install the necessary dependencies:
+```
+pip install -r requirements.txt
+```
+
+After installing the required dependencies, to run the model run:
+To use the model run:
+```
+python main.py
+```
 
 ## Author
 **Gustavo Henrique Schmitz**
