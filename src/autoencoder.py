@@ -10,15 +10,15 @@ def Autoencoder(dataset):
     Returns:
         model: Return a trained autoencoder model
     """
-    # Define the model model
-    model = tf.keras.models.Sequential([
-        tf.keras.layers.Input(shape=(dataset.shape[1])),
-        tf.keras.layers.Dense(40, activation='relu'),
-        tf.keras.layers.Dense(20, activation='relu'),
-        tf.keras.layers.Dense(dataset.shape[1], activation='linear')
-    ])
+    input_layer = tf.keras.layers.Input(shape=(dataset.shape[1],))
+    encoder = tf.keras.layers.Dense(40, activation='relu')(input_layer)
+    latent_space = tf.keras.layers.Dense(20, activation='relu', name="latent_space")(encoder)
+    decoder = tf.keras.layers.Dense(dataset.shape[1], activation='linear')(latent_space)
 
-    # Compile the model model
+    # Define the Functional model
+    model = tf.keras.Model(inputs=input_layer, outputs=decoder)
+
+    # Compile the model
     model.compile(
         loss='mse',
         optimizer='adam'
@@ -32,5 +32,4 @@ def Autoencoder(dataset):
     # Train the model
     model.fit(dataset, dataset, epochs=100, batch_size=100, validation_split=0.15)
     
-    # Return the trained model model
     return model

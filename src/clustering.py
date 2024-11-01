@@ -4,18 +4,18 @@ import tensorflow as tf
 
 def Clustering(model, dataset):
     """
-    Generate customer clusters, based in the latent space representation of the trained autoencoder model
+    Generate customer clusters based on the latent space representation of the trained autoencoder model.
 
     Args:
         model: Trained autoencoder model
         dataset: Loaded preprocessed dataset
 
     Returns:
-        embeddings: Latent Space representations of the dataset obtained from the second last layer of the autoencoder.
+        embeddings: Latent space representations of the dataset obtained from the latent layer of the autoencoder.
         clusters: The generated clusters by the K-means
     """
-    # Create a model to extract the output of the second last layer (latent space)
-    intermediate_layer_model = tf.keras.Model(inputs=model.input, outputs=model.layers[2].output)
+    # Extract the latent space layer by name
+    intermediate_layer_model = tf.keras.Model(inputs=model.input, outputs=model.get_layer("latent_space").output)
     embeddings = intermediate_layer_model.predict(dataset)
     
     # Define and execute the K-means algorithm
@@ -32,5 +32,5 @@ def Clustering(model, dataset):
     print(f'Calinski-Harabasz Index: {ch_index}')
     print("=================================================================================")
 
-    # Return the second layer embeddings and the formed clusters
+    # Return embeddings and clusters
     return embeddings, clusters
