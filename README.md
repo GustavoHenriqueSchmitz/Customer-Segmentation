@@ -7,6 +7,9 @@ An unsupervised AI model that gets a dataset with customer information, analyzes
 - Python
 - TensorFlow
 
+## Project demonstration video
+[![Customer Segmentation Demonstration](https://img.youtube.com/vi/oba52qJBnDM/0.jpg)](https://www.youtube.com/watch?v=oba52qJBnDM)
+
 ## How to test it?
 **1 -** First clone the project:
 ```
